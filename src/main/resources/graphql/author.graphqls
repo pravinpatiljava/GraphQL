@@ -8,6 +8,7 @@ type Author {
 type Query {
 	findAllAuthors: [Author]!
 	countAuthors: Long!
+	findByIdd(id:ID): Author
 }
 
 # Root

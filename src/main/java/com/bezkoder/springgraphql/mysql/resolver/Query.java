@@ -9,6 +9,8 @@ import com.bezkoder.springgraphql.mysql.repository.AuthorRepository;
 import com.bezkoder.springgraphql.mysql.repository.TutorialRepository;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 
+import java.util.Optional;
+
 @Component
 public class Query implements GraphQLQueryResolver {
 	private AuthorRepository authorRepository;
@@ -23,6 +25,11 @@ public class Query implements GraphQLQueryResolver {
 	public Iterable<Author> findAllAuthors() {
 		return authorRepository.findAll();
 	}
+
+	public Optional<Author> findByIdd(Long id) {
+		return authorRepository.findById(id);
+	}
+
 
 	public Iterable<Tutorial> findAllTutorials() {
 		return tutorialRepository.findAll();
